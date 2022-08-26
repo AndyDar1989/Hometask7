@@ -25,34 +25,27 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i, j], 4}");// 4- задает длинну под вывод 
+            Console.Write($"{matrix[i, j],4}");// 4- задает длинну под вывод 
         }
         Console.WriteLine();
     }
 }
 
-double[] AverageColValue(int[,] matrix)
+void AverageColValue(int[,] matrix)
 {
-    int size = matrix.GetLength(1);
-    double[] array = new double[size];
-    int k = 0;
-    int j =0;
-    int sum = 0;
-    while(j<size)
+    Console.Write("The average of every column: ");
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-        sum+=matrix[i,j];
-        }
-        double average = sum/size*1.0;
-        array[k] = average;
-        j++;
-        k++;
+        int size = matrix.GetLength(0);
+        int sum = 0;
+        for (int i = 0; i < size; i++)
+            sum += matrix[i, j];
+        if (j < matrix.GetLength(1) - 1)
+            Console.Write($"{Math.Round((double)sum / size, 1)};  ");
+        else Console.Write($"{Math.Round((double)sum / size, 1)}.");
     }
-    return array;
 }
 
-int[,] matr = CreateMatrixRndInt(3,4,0,9);
+int[,] matr = CreateMatrixRndInt(3, 4, 0, 9);
 PrintMatrix(matr);
-double[] av = AverageColValue(matr);
-Console.WriteLine(av);
+AverageColValue(matr);
