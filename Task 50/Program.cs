@@ -13,9 +13,7 @@ int[,] CreateMatrixRndInt(int str, int col, int min, int max)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
             matrix[i, j] = rnd.Next(min, max + 1);
-        }
     }
     return matrix;
 }
@@ -25,25 +23,23 @@ void PrintMatrix(int[,] matrix)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i, j], 4}");// 4- задает длинну под вывод 
-        }
+            Console.Write($"{matrix[i, j],4}");// 4- задает длинну под вывод 
         Console.WriteLine();
     }
 }
 
 void ElementPos(int[,] matrix, int i, int j)
 {
-    if (i<matrix.GetLength(0) && j<matrix.GetLength(1))
-        Console.WriteLine(matrix[i,j]);
+    if (i < matrix.GetLength(0) && j < matrix.GetLength(1))
+        Console.WriteLine(matrix[i, j]);
     else
         Console.WriteLine("this position isn't in the array");
 }
 
-int[,] matr = CreateMatrixRndInt(5,5,0,20);
+int[,] matr = CreateMatrixRndInt(5, 5, 0, 9);
 Console.Write("Enter string position: ");
 int s = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter column position: ");
 int c = Convert.ToInt32(Console.ReadLine());
 PrintMatrix(matr);
-ElementPos(matr,s,c);
+ElementPos(matr, s, c);

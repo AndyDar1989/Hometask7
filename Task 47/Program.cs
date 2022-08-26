@@ -11,9 +11,7 @@ double[,] CreateMatrixRndDouble(int str, int col, double min, double max)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
             matrix[i, j] = Math.Round(rnd.NextDouble() * (max - min) + min, 1);
-        }
     }
     return matrix;
 }
@@ -23,12 +21,14 @@ void PrintMatrix(double[,] matrix)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i, j], 6}");// 4- задает длинну под вывод 
-        }
+            Console.Write($"{matrix[i, j],7}");// 4- задает длинну под вывод 
         Console.WriteLine();
     }
 }
 
-double[,] arr = CreateMatrixRndDouble(3,4,-10.0,10.0);
-PrintMatrix(arr);
+Console.Write("Enter count of strings: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter count of columns: ");
+int n = Convert.ToInt32(Console.ReadLine());
+double[,] matr = CreateMatrixRndDouble(m, n, -100.0, 100.0);
+PrintMatrix(matr);

@@ -12,9 +12,7 @@ int[,] CreateMatrixRndInt(int str, int col, int min, int max)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
             matrix[i, j] = rnd.Next(min, max + 1);
-        }
     }
     return matrix;
 }
@@ -24,14 +22,12 @@ void PrintMatrix(int[,] matrix)
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
-        {
             Console.Write($"{matrix[i, j],4}");// 4- задает длинну под вывод 
-        }
         Console.WriteLine();
     }
 }
 
-void AverageColValue(int[,] matrix)
+void AverageValueCol(int[,] matrix)
 {
     Console.Write("The average of every column: ");
     for (int j = 0; j < matrix.GetLength(1); j++)
@@ -46,6 +42,6 @@ void AverageColValue(int[,] matrix)
     }
 }
 
-int[,] matr = CreateMatrixRndInt(3, 4, 0, 9);
+int[,] matr = CreateMatrixRndInt(5, 5, 0, 9);
 PrintMatrix(matr);
-AverageColValue(matr);
+AverageValueCol(matr);
